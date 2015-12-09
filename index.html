@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Video Player</title>
+	<script src="assets/js/jquery.js"></script>
+	<style>
+		
+	</style>
+	<link rel="stylesheet" href="assets/css/videoPlayer.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.css">
+</head>
+
+<body>
+	<div id="ok"></div>
+	<div id="video">
+		<div id="videoPlayer">
+			<!--
+				<source src="assets/video/ads.mp4" data-skip="true" data-starttime="0" data-skiptime="5">
+				<source src="assets/video/video.mp4" data-cover="assets/img/cover.png" data-main="true">
+				<source src="assets/video/ads.mp4" data-skip="true" data-starttime="15" data-skiptime="5">
+				<source data-src="http://43eb74ada891f0f09679-c04bb4ac5bb47a13c85d2a60607693e6.r18.cf2.rackcdn.com/original/one_more_new.webm?id=2716" data-cover="assets/img/cover.png" data-main="true">
+			-->
+			<video id="videoElement">
+				<source data-src="assets/video/ads.mp4" data-skip="true" data-starttime="0" data-skiptime="3">
+				<source data-src="assets/video/video.mp4" data-cover="assets/img/cover.png" data-main="true">
+				<source data-src="assets/video/ads.mp4" data-skip="true" data-starttime="15" data-skiptime="3">
+				<source data-text="true" data-starttime="2" data-duration="10" data-value="Bunlar insansa ben hayvanım!" data-href="http://google.com">
+				<source data-text="true" data-starttime="16" data-duration="10" data-value="Maaşallah hocam sübhanallah" data-href="http://google.com">
+			</video>
+		</div>
+		<div id="videoPlaylist">
+			<div class="playlistItem active" data-secondadv="false" data-src="assets/video/video.mp4" data-cover="assets/img/cover.png">
+				<div class="img" style="background-image: url('assets/img/cover.png')"></div>
+				<div class="text">All My People - Sasha Lopez ft Andrea D. [HD]</div>
+				<div class="duration">04:57</div>
+			</div>
+			<div class="playlistItem" data-secondadv="false" data-src="assets/video/video2.mp4" data-cover="assets/img/cover2.png">
+				<div class="img" style="background-image: url('assets/img/cover2.png')"></div>
+				<div class="text">Destination Unknown (Calibra) [HD]</div>
+				<div class="duration">04:57</div>
+			</div>
+			<div class="playlistItem" data-secondadv="true" data-src="assets/video/video3.mp4" data-cover="assets/img/cover3.png">
+				<div class="img" style="background-image: url('assets/img/cover3.png')"></div>
+				<div class="text">Disco Breaker [HD]</div>
+				<div class="duration">04:57</div>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+	</div>
+	
+</body>
+
+</html>
+
+<script src="assets/js/videoPlayer.js"></script>

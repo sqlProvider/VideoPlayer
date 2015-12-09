@@ -1,0 +1,254 @@
+*{
+	box-sizing: border-box;
+}
+$controlHeight : 30px;
+#video {
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 200px;
+	height: auto;
+}
+#videoPlaylist{
+	float: left;
+	width: 25%;
+	background: #263238;
+	height: 360px;
+	.playlistItem{
+		width: 100%;
+		height: 70px;
+		padding: 10px 5px;
+		position: relative;
+		border-bottom: 1px solid #222;
+		color : #ECEFF1;
+		cursor: pointer;
+		&.active{
+			background: #333;
+		}
+		div.img{
+			height: 50px;
+			width: 90px;
+			float: left;
+			background-size: cover; 
+		}
+		div.text{
+			width: 100%;
+			position: absolute;
+			padding-left: 95px;
+			font-size: 13px;
+		}
+		div.duration{
+			position: absolute;
+			bottom : 0px;
+			right: 0px;
+			padding: 5px;
+			font-size: 12px;
+			border-top-left-radius: 5px;
+		}
+	}
+}
+#videoPlayer{
+	overflow: hidden;
+	position: relative;
+	background: #111;
+	width: 75%;
+	height: 360px;
+	float: left;
+	&.fullScreen{
+		width: 100%;
+		height: 100%;
+	}
+	video{
+		width: 100%;
+		height: 100%;
+		margin-left: -1px;
+	}
+	&:hover #videoControls{
+		margin-top: -($controlHeight);
+	}
+	#videoCover{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-repeat: no-repeat; 
+	}
+	#videoSkip{
+		position: absolute;
+		bottom: 50px;
+		right: 0;
+		width: 100px;
+		height: 30px;
+		text-align: center;
+		color: #ECEFF1;
+		i{color: #ECEFF1 !important;}
+		line-height: 30px;
+		display: none;
+		cursor: pointer;
+		background: #263238;
+		opacity: .7;
+		&:hover{
+			opacity: 1;
+		}
+	}
+	$videoProgressHeight : 3px;
+	#videoProgress{
+		position: absolute;
+		width: 100%;
+		height: $videoProgressHeight;
+		//top: -($videoProgressHeight);
+		bottom: 100%;
+		left: 0;
+		&.active {
+			//top: - ($videoProgressHeight + 3px);
+			#videoProgressCircle{
+				display: block;
+			}
+			&,*{
+				height: $videoProgressHeight + 3px;
+			}
+		}
+		*{
+			position: absolute;
+			left: 0; top: 0;
+			height: $videoProgressHeight;
+			transition : all .3s;
+		}
+		#videoWatched{
+			background: #DC2142;
+			width: 0;
+			z-index: 3;
+		}
+		#videoProgressCircle{
+			width: 15px;
+			height: 15px;
+			border-radius: 15px;
+			left: 0;
+			margin-left: -7px;
+			margin-top: -4px;
+			z-index: 4;
+			background: #DC2142;
+			display: none;
+		}
+		#videoDownloaded{
+			width: 0;
+			z-index: 2;
+			background: #ECEFF1;
+		}
+	}
+	#videoTextAdv{
+		position: absolute;
+		top: 40px;
+		right: 500%;
+		background: #263238;
+		padding: 10px 20px;
+		opacity: .7;
+		a{
+			color : #ECEFF1;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+		&:hover{
+			opacity: 1;
+		}
+	}
+	#videoControls{
+		position: absolute;
+		width: 100%;
+		height: $controlHeight;
+		margin-top: 0;
+		background-color: #263238;
+		top: 100%;
+		left: 0;
+		transition: all .5s;
+		*{cursor: pointer; transition: all .5s; -webkit-user-select: none;}
+		i{color: #ECEFF1 !important;font-size: 15px !important;}
+		
+		#videoPlay,#videoVolume,#videoFullScreen,#videoTime,#videoTradeMark{
+			width: 50px;
+			height: $controlHeight;
+			position: absolute;
+			bottom: 0;
+			&:hover{
+				background-color: #37474F;
+			}
+			i{
+				line-height: $controlHeight;
+				font-size: 20px;
+				width: 50px;
+				text-align: center;
+				float: left;
+			}
+		}
+		#videoTradeMark{
+			right: 100px;
+			width: 112px;
+			padding: 2.5px 10px;
+			&.active{
+				right:210px;
+			}
+		}
+		
+		#videoPlay{
+			left: 0;
+		}
+		#videoTime{
+			left: 50px;
+			padding: 0 10px;
+			width: auto;
+			line-height: $controlHeight;
+			color : #ECEFF1;
+			font-size: 14px;
+			&:hover{background: #263238}
+		}
+		#videoVolume{
+			right: 50px;
+			*{
+				transition: none;
+			}
+			&.active{
+				width: 160px;
+				padding-right: 10px;
+				#videoVolumeSlider{
+					position: relative;
+					width: 100px;
+					float: right;
+					transition: all .5s;
+					#videoVolumeSliderStick{
+						position: absolute;
+						width: 100px;
+						height: 4px;
+						background: #ECEFF1;
+						top: ($controlHeight - 4px) / 2;
+						left: 0;
+						border-radius: 10px;
+					}
+					#videoVolumeSliderCircle{
+						position: absolute;
+						width: 10px;
+						height: 10px;
+						border-radius: 10px;
+						background: #DC2142;
+						top: ($controlHeight - 10px) / 2;
+						left: 90px;
+						transition: none;
+					}
+				}
+			}
+			#videoVolumeSlider{
+				width:0;
+				overflow: hidden;
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: $controlHeight;
+			}
+		}
+		#videoFullScreen{
+			right: 0;
+		}
+		
+		
+	}
+}
